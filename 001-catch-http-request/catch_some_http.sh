@@ -1,2 +1,2 @@
 # !/bin/bash
-nohup tcpdump -c 10000 -s 0 -i eth0 port 5000 -A | grep "cmd\":100"
+tcpdump -c 10000 -s 0 -i eth0 port 5000 -A | grep "cmd\":100" >> ret.log
