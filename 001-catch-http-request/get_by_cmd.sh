@@ -4,7 +4,7 @@ function get_cmd_num() {
     minimumsize=10k
 
     if [[ $(find $filename -type f -size +${minimumsize} 2>/dev/null) ]]; then
-        $1 is already enough
+        echo "$1 is already enough--->"
     else
         sudo tcpdump -c 10000 -s 0 -i enp3s0 port 5000 -A | grep "cmd\":${1}" >>  ${filename}
     fi
