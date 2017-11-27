@@ -10,10 +10,11 @@ function get_cmd_num() {
     fi
 }
 
-for i in {1..100}
+for k in {1..100}
 do
-    declare -a cmd_list=("100" "200")
-    for i in "{$cmd_list[@]}"
+    declare -a arr=("a" "b")
+
+    for i in "${arr[@]}"
     do
         get_cmd_num "$i"
     done
