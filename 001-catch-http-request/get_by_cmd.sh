@@ -12,7 +12,7 @@ function get_cmd_num() {
 
 for k in {1..100}
 do
-    declare -a arr=(100 200)
+    declare -a arr=(100 102 200 201 202 203 204 300 301 400 401 402 500 501 503 504 505 601 801)
 
     for i in "${arr[@]}"
     do
