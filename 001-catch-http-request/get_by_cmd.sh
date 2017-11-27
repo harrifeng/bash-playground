@@ -1,13 +1,20 @@
 function get_cmd_num() {
     logsuffix='.log'
     filename=$1$logsuffix
-    minimumsize=1000
+    minimumsize=10k
 
-    if [[ $(find $filename -type f -size +${minimumsize}c 2>/dev/null) ]]; then
+    if [[ $(find $filename -type f -size +${minimumsize} 2>/dev/null) ]]; then
         $1 is already enough
     else
-        tcpdump -c 100000 -s 0 -i eth0 port 5000 -A | grep "cmd\":${1}" >>  ${filename}
+        sudo tcpdump -c 10000 -s 0 -i eth0 port 5000 -A | grep "cmd\":${1}" >>  ${filename}
     fi
 }
 
-get_cmd_num 100
+for i in {1..100}
+do
+    declare -a cmd_list=("100" "200")
+    for i in "{$cmd_list[@]}"
+    do
+        get_cmd_num "$i"
+    done
+done
