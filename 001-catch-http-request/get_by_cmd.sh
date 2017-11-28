@@ -1,7 +1,7 @@
 function get_cmd_num() {
     logsuffix='.log'
     filename=$1$logsuffix
-    minimumsize=300k
+    minimumsize=10M
 
     if [[ $(find $filename -type f -size +${minimumsize} 2>/dev/null) ]]; then
         echo "$1 is already enough--->"
